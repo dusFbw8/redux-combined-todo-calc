@@ -4,6 +4,7 @@ const defaultState = {
 };
 
 const reducer = ( state=defaultState, action )=> {
+  console.log('calc-reducer',state);
   let result = state, { formula } = state;
   switch (action.type) {
     case 'INPUT':

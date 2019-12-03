@@ -9,4 +9,7 @@ const Display = ({formula,dispatch})=> {
   );
 }
 
-export default connect(state=>{return state})(Display);
+export default connect( ({calc,mode}) => {
+  let {formula} = calc;
+  return { formula, mode }
+})(Display);

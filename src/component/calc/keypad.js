@@ -1,9 +1,11 @@
 
 import React from 'react';
 import { connect }   from 'react-redux'
-import { Button, Table } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 
-const Keypad = ({formula,dispatch})=> {
+const Keypad = (props)=> {
+  console.log(props);
+  let {dispatch} = props
   const click = e => {
     dispatch({type:'INPUT',value:e.target.value})
   }
@@ -22,4 +24,7 @@ const Keypad = ({formula,dispatch})=> {
   );
 }
 
-export default connect(state=>{return state})(Keypad);
+export default connect( ({calc,mode}) => {
+  let {formula} = calc;
+  return { formula, mode }
+})(Keypad);
